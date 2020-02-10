@@ -1,0 +1,10 @@
+{
+    "name": "Second Chance",
+    "version": "1.0",
+    "description": "SD&D Project",
+    "background": {
+      "scripts": ["detect.js"],
+      "persistent": false
+    },
+    "manifest_version": 2
+  }
