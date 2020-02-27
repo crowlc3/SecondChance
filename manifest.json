@@ -11,9 +11,9 @@
 	},
 	"permissions": [
 	"activeTab"
-	]
-	"background": [
+	],
+	"background": {
 	"script": ["detect.js"],
 	"persistent": true
-	]
+	}
 }
