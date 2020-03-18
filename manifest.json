@@ -9,11 +9,13 @@
 	"default_icon": "icon.png",
 	"default_popup": "popup.html"
 	},
-	"permissions": [
-	"activeTab"
-	]
-	"background" [
-	"script": ["detect.js"],
+	"permissions":[
+         "<all_urls>",
+         "webRequest",
+	 "webRequestBlocking"    
+	],
+	"background": {
+	"scripts": ["detect.js"],
 	"persistent": true
-	]
+	}
 }
