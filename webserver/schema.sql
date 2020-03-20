@@ -1,0 +1,17 @@
+CREATE DATABASE secondchance;
+GRANT ALL PRIVILEGES ON DATABASE secondchance TO sdd;
+
+CREATE TABLE master(
+    url TEXT PRIMARY KEY,
+    score INT,
+    safe BOOLEAN,
+    date_added DATE NOT NULL DEFAULT CURRENT_DATE
+);
+
+ALTER TABLE master OWNER TO sdd;
+
+CREATE TABLE queue(
+	url TEXT PRIMARY KEY
+);
+
+ALTER TABLE queue OWNER TO sdd;
