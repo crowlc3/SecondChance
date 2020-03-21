@@ -13,7 +13,7 @@ function url_filter(url, check) {
 
     var x;
     for (x = 0; x < (url.length - check.length + 1); x++) {
-        console.log();
+        //console.log();
         if (url[x] === check[0]) {
             var y;
             let cont = 1;
