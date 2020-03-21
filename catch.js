@@ -36,7 +36,7 @@ function url_filter(url, check) {
 
 chrome.webRequest.onBeforeRequest.addListener(function (details) {
     
-    console.log(details.url);
+    //console.log(details.url);
     if (new_site && url !== details.url) {
 
         url = details.url;
