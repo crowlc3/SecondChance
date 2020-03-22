@@ -1,16 +1,24 @@
-// Second Chance Webserver File
+// Second Chance Module File
 // SDD 2020
 
-require('dotenv').config();
-const express = require('express');
-const app = express();
-
-const HTTP_PORT = process.env.HTTP_PORT || "3000";
-
-app.get("/", (req, res) => {
-	res.status(200).send("Success. Application is running.");
+// This next section contains the portion of my webserver that handles the requests and directs them to this file
+/*
+// Second chance app for SDD
+app.get('/secondchance', function(req,res){
+  if(req.query.url == null){
+    res.status(400);
+    res.send("Invalid request.");
+  }
+  else{
+    secondchance.checkLink(req.query.url, function(url_status){
+      res.status(200);
+      res.send(url_status);
+    });
+  }
 });
+*/
 
-app.listen(HTTP_PORT, () => {
-	console.log("Express application listening on port " + HTTP_PORT);
-});
+// This portion handles the redirected requests from my webserver
+exports.checkLink = function(url, callback){
+	callback(url);
+}
