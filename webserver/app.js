@@ -54,15 +54,12 @@ client.connect(err => {
 
 // This portion handles the redirected requests from my webserver
 exports.checkLink = function(url, callback){
-	addToMaster(url, 0, true);
+	// addToMaster(url, 0, true);
+	// readQueue();
 
-	callback({
-		success: true,
-		url: url,
-		score: 0,
-		safe: true
+	readMaster(url, res => {
+		callback(res);
 	});
-
 
 	// Virus Total
 	// Listen for error code 429
@@ -74,15 +71,14 @@ function makeAPICall(){
 }
 
 // Read the top most item from the queue
-function readQueue(){
+function popQueue(callback){
 	client.query('SELECT url FROM queue ORDER BY date_added ASC LIMIT 1;', (err, res) => {
 		if(err){
 			console.log(err.stack);
-			return null;
+			callback(null);
 		}
 		else{
-			console.log(res.rows[0]);
-			return res.rows[0];
+			callback(res.rows[0]);
 		}
 	});
 }
@@ -95,15 +91,26 @@ function addToQueue(url){
 			return false;
 		}
 		else{
-			console.log(res);
 			return true;
 		}
 	});
 }
 
 // Get the score of a url in master
-function readMaster(){
-	
+function readMaster(url, callback){
+	client.query('SELECT url, score, safe FROM master WHERE url = $1 LIMIT 1;', [url], (err, res) => {
+		if(err){
+			console.log(err.stack);
+			callback(null);
+		}
+		else if(res.rowCount == 0){
+			console.log('Not in database.');
+			callback({ success: false });
+		}
+		else{
+			callback( {success:true, url:res.rows[0].url, score:res.rows[0].score, safe:res.rows[0].safe});
+		}
+	});
 }
 
 // Add a url to the master list
@@ -114,9 +121,7 @@ function addToMaster(url, score, safe){
 			return false;
 		}
 		else{
-			console.log(res);
 			return true;
 		}
 	});
 }
-
