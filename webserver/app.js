@@ -18,7 +18,110 @@ app.get('/secondchance', function(req,res){
 });
 */
 
+/*
+Responses to client should return JSON structure like such:
+
+{
+	success: true,
+	url: "google.com"
+	score: 0,
+	safe: true
+}
+
+*/
+
+// Pull in variables from the environment
+require('dotenv').config();
+
+// Connect to the database
+const { Client } = require('pg');
+const client = new Client({
+  host: process.env.SDD_DB_HOST,
+  port: process.env.SDD_DB_PORT,
+  user: process.env.SDD_DB_USER,
+  password: process.env.SDD_DB_PASS,
+  database: process.env.SDD_DB_DATA,
+  query_timeout: 2000
+});
+
+client.connect(err => {
+  if (err) {
+    console.error('connection error', err.stack)
+  } else {
+    console.log('connected')
+  }
+})
+
 // This portion handles the redirected requests from my webserver
 exports.checkLink = function(url, callback){
-	callback(url);
+	// addToMaster(url, 0, true);
+	// readQueue();
+
+	readMaster(url, res => {
+		callback(res);
+	});
+
+	// Virus Total
+	// Listen for error code 429
+
+}
+
+function makeAPICall(){
+
+}
+
+// Read the top most item from the queue
+function popQueue(callback){
+	client.query('SELECT url FROM queue ORDER BY date_added ASC LIMIT 1;', (err, res) => {
+		if(err){
+			console.log(err.stack);
+			callback(null);
+		}
+		else{
+			callback(res.rows[0]);
+		}
+	});
+}
+
+// Add a URL to the queue
+function addToQueue(url){
+	client.query('INSERT INTO queue (url) VALUES ($1) ON CONFLICT DO NOTHING;', [url], (err, res) => {
+		if(err){
+			console.log(err.stack);
+			return false;
+		}
+		else{
+			return true;
+		}
+	});
+}
+
+// Get the score of a url in master
+function readMaster(url, callback){
+	client.query('SELECT url, score, safe FROM master WHERE url = $1 LIMIT 1;', [url], (err, res) => {
+		if(err){
+			console.log(err.stack);
+			callback(null);
+		}
+		else if(res.rowCount == 0){
+			console.log('Not in database.');
+			callback({ success: false });
+		}
+		else{
+			callback( {success:true, url:res.rows[0].url, score:res.rows[0].score, safe:res.rows[0].safe});
+		}
+	});
+}
+
+// Add a url to the master list
+function addToMaster(url, score, safe){
+	client.query('INSERT INTO master (url, score, safe) VALUES ($1, $2, $3) ON CONFLICT (url) DO UPDATE SET score = $2, safe = $3, date_added = CURRENT_DATE;', [url, score, safe], (err, res) => {
+		if(err){
+			console.log(err.stack);
+			return false;
+		}
+		else{
+			return true;
+		}
+	});
 }

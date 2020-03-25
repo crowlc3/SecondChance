@@ -1,0 +1,608 @@
+{
+  "data": {
+    "requests": [
+      {
+        "request": {
+          "requestId": "D1C36E4E7152966AC201722EDAE078E7",
+          "loaderId": "D1C36E4E7152966AC201722EDAE078E7",
+          "documentURL": "http://gammanueta.org/",
+          "request": {
+            "url": "http://gammanueta.org/",
+            "method": "GET",
+            "headers": {
+              "Upgrade-Insecure-Requests": "1",
+              "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+            },
+            "mixedContentType": "none",
+            "initialPriority": "VeryHigh",
+            "referrerPolicy": "no-referrer-when-downgrade"
+          },
+          "timestamp": 23395703.267387,
+          "wallTime": 1584898527.517098,
+          "initiator": {
+            "type": "other"
+          },
+          "type": "Document",
+          "frameId": "744787811D88FE17C6A450C86D47D398",
+          "hasUserGesture": false
+        },
+        "response": {
+          "encodedDataLength": 3450,
+          "dataLength": 10670,
+          "requestId": "D1C36E4E7152966AC201722EDAE078E7",
+          "type": "Document",
+          "response": {
+            "url": "http://gammanueta.org/",
+            "status": 200,
+            "statusText": "OK",
+            "headers": {
+              "Date": "Sun, 22 Mar 2020 17:35:27 GMT",
+              "Content-Type": "text/html",
+              "Transfer-Encoding": "chunked",
+              "Connection": "keep-alive",
+              "Set-Cookie": "__cfduid=d9ddb8dea1f28d1d873b01ad35abd039b1584898527; expires=Tue, 21-Apr-20 17:35:27 GMT; path=/; domain=.gammanueta.org; HttpOnly; SameSite=Lax",
+              "Last-Modified": "Thu, 12 Mar 2020 16:53:59 GMT",
+              "CF-Cache-Status": "DYNAMIC",
+              "Server": "cloudflare",
+              "CF-RAY": "5781ab5528e2dfa9-FRA",
+              "Content-Encoding": "gzip"
+            },
+            "mimeType": "text/html",
+            "requestHeaders": {
+              "Host": "gammanueta.org",
+              "Connection": "keep-alive",
+              "Pragma": "no-cache",
+              "Cache-Control": "no-cache",
+              "Upgrade-Insecure-Requests": "1",
+              "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36",
+              "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+              "Accept-Encoding": "gzip, deflate",
+              "Accept-Language": "en-US"
+            },
+            "remoteIPAddress": "[2606:4700:3035::681c:1808]",
+            "remotePort": 80,
+            "fromPrefetchCache": false,
+            "encodedDataLength": 438,
+            "timing": {
+              "requestTime": 23395703.267576,
+              "proxyStart": -1,
+              "proxyEnd": -1,
+              "dnsStart": 0.278,
+              "dnsEnd": 22.144,
+              "connectStart": 22.144,
+              "connectEnd": 27.277,
+              "sslStart": -1,
+              "sslEnd": -1,
+              "workerStart": -1,
+              "workerReady": -1,
+              "sendStart": 27.315,
+              "sendEnd": 27.341,
+              "pushStart": 0,
+              "pushEnd": 0,
+              "receiveHeadersEnd": 91.343
+            },
+            "protocol": "http/1.1",
+            "securityState": "insecure"
+          },
+          "hash": "15e1fc30bc8a5b5b4af6546df2864a38ca7a2b706daf955e2a9d53f9ebeed809",
+          "size": 10670,
+          "asn": {
+            "ip": "2606:4700:3035::681c:1808",
+            "asn": "13335",
+            "country": "US",
+            "registrar": "arin",
+            "date": "2010-07-14",
+            "description": "CLOUDFLARENET, US",
+            "route": "2606:4700:3035::/48",
+            "name": "CLOUDFLARENET"
+          },
+          "geoip": {
+            "range": "",
+            "country": "US",
+            "region": "",
+            "city": "",
+            "ll": [
+              37.751,
+              -97.822
+            ],
+            "metro": 0,
+            "area": 100,
+            "eu": "0",
+            "timezone": "America/Chicago",
+            "country_name": "United States"
+          },
+          "hashmatches": []
+        }
+      },
+      {
+        "request": {
+          "requestId": "3513.2",
+          "loaderId": "D1C36E4E7152966AC201722EDAE078E7",
+          "documentURL": "http://gammanueta.org/",
+          "request": {
+            "url": "http://gammanueta.org/icons/openlogo-75.png",
+            "method": "GET",
+            "headers": {
+              "Referer": "http://gammanueta.org/",
+              "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+            },
+            "mixedContentType": "none",
+            "initialPriority": "Low",
+            "referrerPolicy": "no-referrer-when-downgrade"
+          },
+          "timestamp": 23395703.373456,
+          "wallTime": 1584898527.623164,
+          "initiator": {
+            "type": "parser",
+            "url": "http://gammanueta.org/",
+            "lineNumber": 190
+          },
+          "type": "Image",
+          "frameId": "744787811D88FE17C6A450C86D47D398",
+          "hasUserGesture": false
+        },
+        "response": {
+          "encodedDataLength": 571,
+          "dataLength": 571,
+          "requestId": "3513.2",
+          "type": "Image",
+          "response": {
+            "url": "http://gammanueta.org/icons/openlogo-75.png",
+            "status": 404,
+            "statusText": "Not Found",
+            "headers": {
+              "Date": "Sun, 22 Mar 2020 17:35:27 GMT",
+              "Content-Encoding": "gzip",
+              "CF-Cache-Status": "EXPIRED",
+              "Server": "cloudflare",
+              "Vary": "Accept-Encoding",
+              "Content-Type": "text/html",
+              "Cache-Control": "max-age=14400",
+              "Transfer-Encoding": "chunked",
+              "Connection": "keep-alive",
+              "CF-RAY": "5781ab55aa6fdfa9-FRA"
+            },
+            "mimeType": "text/html",
+            "remoteIPAddress": "[2606:4700:3035::681c:1808]",
+            "remotePort": 80,
+            "fromPrefetchCache": false,
+            "encodedDataLength": 293,
+            "timing": {
+              "requestTime": 23395703.374016,
+              "proxyStart": -1,
+              "proxyEnd": -1,
+              "dnsStart": -1,
+              "dnsEnd": -1,
+              "connectStart": -1,
+              "connectEnd": -1,
+              "sslStart": -1,
+              "sslEnd": -1,
+              "workerStart": -1,
+              "workerReady": -1,
+              "sendStart": 0.815,
+              "sendEnd": 0.938,
+              "pushStart": 0,
+              "pushEnd": 0,
+              "receiveHeadersEnd": 61.695
+            },
+            "protocol": "http/1.1",
+            "securityState": "insecure"
+          },
+          "hash": "d50b9852ce176350c41f3a8b9bc01132659f8b18b9ccec1cdea6e98d28176daf",
+          "size": 571,
+          "asn": {
+            "ip": "2606:4700:3035::681c:1808",
+            "asn": "13335",
+            "country": "US",
+            "registrar": "arin",
+            "date": "2010-07-14",
+            "description": "CLOUDFLARENET, US",
+            "route": "2606:4700:3035::/48",
+            "name": "CLOUDFLARENET"
+          },
+          "geoip": {
+            "range": "",
+            "country": "US",
+            "region": "",
+            "city": "",
+            "ll": [
+              37.751,
+              -97.822
+            ],
+            "metro": 0,
+            "area": 100,
+            "eu": "0",
+            "timezone": "America/Chicago",
+            "country_name": "United States"
+          },
+          "hashmatches": []
+        },
+        "initiatorInfo": {
+          "url": "http://gammanueta.org/",
+          "host": "gammanueta.org",
+          "type": "parser"
+        }
+      }
+    ],
+    "cookies": [
+      {
+        "name": "__cfduid",
+        "value": "d9ddb8dea1f28d1d873b01ad35abd039b1584898527",
+        "domain": ".gammanueta.org",
+        "path": "/",
+        "expires": 1587490527.608652,
+        "size": 51,
+        "httpOnly": true,
+        "secure": false,
+        "session": false,
+        "sameSite": "Lax"
+      }
+    ],
+    "console": [],
+    "links": [
+      {
+        "href": "https://httpd.apache.org/docs/2.4/mod/mod_userdir.html",
+        "text": "public_html"
+      },
+      {
+        "href": "https://bugs.debian.org/cgi-bin/pkgreport.cgi?ordering=normal;archive=0;src=apache2;repeatmerged=0",
+        "text": "existing bug reports"
+      }
+    ],
+    "timing": {
+      "beginNavigation": "2020-03-22T17:35:27.516Z",
+      "frameStartedLoading": "2020-03-22T17:35:27.620Z",
+      "frameNavigated": "2020-03-22T17:35:27.621Z",
+      "domContentEventFired": "2020-03-22T17:35:27.651Z",
+      "loadEventFired": "2020-03-22T17:35:27.688Z",
+      "frameStoppedLoading": "2020-03-22T17:35:27.688Z"
+    },
+    "globals": [
+      {
+        "prop": "onformdata",
+        "type": "object"
+      },
+      {
+        "prop": "onpointerrawupdate",
+        "type": "object"
+      }
+    ]
+  },
+  "stats": {
+    "resourceStats": [
+      {
+        "count": 1,
+        "size": 571,
+        "encodedSize": 571,
+        "latency": 0,
+        "countries": [
+          "US"
+        ],
+        "ips": [
+          "[2606:4700:3035::681c:1808]"
+        ],
+        "type": "Image",
+        "compression": "1.0",
+        "percentage": null
+      },
+      {
+        "count": 1,
+        "size": 10670,
+        "encodedSize": 3450,
+        "latency": 0,
+        "countries": [
+          "US"
+        ],
+        "ips": [
+          "[2606:4700:3035::681c:1808]"
+        ],
+        "type": "Document",
+        "compression": "3.1",
+        "percentage": null
+      }
+    ],
+    "protocolStats": [
+      {
+        "count": 2,
+        "size": 11241,
+        "encodedSize": 4021,
+        "ips": [
+          "[2606:4700:3035::681c:1808]"
+        ],
+        "countries": [
+          "US"
+        ],
+        "securityState": {},
+        "protocol": "http/1.1"
+      }
+    ],
+    "tlsStats": [
+      {
+        "count": 2,
+        "size": 11241,
+        "encodedSize": 4021,
+        "ips": [
+          "[2606:4700:3035::681c:1808]"
+        ],
+        "countries": [
+          "US"
+        ],
+        "protocols": {},
+        "securityState": "insecure"
+      }
+    ],
+    "serverStats": [
+      {
+        "count": 2,
+        "size": 11241,
+        "encodedSize": 4021,
+        "ips": [
+          "[2606:4700:3035::681c:1808]"
+        ],
+        "countries": [
+          "US"
+        ],
+        "server": "cloudflare"
+      }
+    ],
+    "domainStats": [
+      {
+        "count": 2,
+        "ips": [
+          "2606:4700:3035::681c:1808",
+          "[2606:4700:3035::681c:1808]"
+        ],
+        "domain": "gammanueta.org",
+        "size": 11241,
+        "encodedSize": 4021,
+        "countries": [
+          "US"
+        ],
+        "index": 0,
+        "initiators": [
+          "gammanueta.org"
+        ],
+        "redirects": 0
+      }
+    ],
+    "regDomainStats": [
+      {
+        "count": 2,
+        "ips": [
+          "2606:4700:3035::681c:1808",
+          "[2606:4700:3035::681c:1808]"
+        ],
+        "regDomain": "gammanueta.org",
+        "size": 11241,
+        "encodedSize": 4021,
+        "countries": [],
+        "index": 0,
+        "subDomains": [],
+        "redirects": 0
+      }
+    ],
+    "secureRequests": 0,
+    "securePercentage": 0,
+    "IPv6Percentage": 100,
+    "uniqCountries": 1,
+    "totalLinks": 2,
+    "malicious": 0,
+    "adBlocked": 0,
+    "ipStats": [
+      {
+        "requests": 2,
+        "domains": [
+          "gammanueta.org"
+        ],
+        "ip": "2606:4700:3035::681c:1808",
+        "asn": {
+          "ip": "2606:4700:3035::681c:1808",
+          "asn": "13335",
+          "country": "US",
+          "registrar": "arin",
+          "date": "2010-07-14",
+          "description": "CLOUDFLARENET, US",
+          "route": "2606:4700:3035::/48",
+          "name": "CLOUDFLARENET"
+        },
+        "dns": {},
+        "geoip": {
+          "range": "",
+          "country": "US",
+          "region": "",
+          "city": "",
+          "ll": [
+            37.751,
+            -97.822
+          ],
+          "metro": 0,
+          "area": 100,
+          "eu": "0",
+          "timezone": "America/Chicago",
+          "country_name": "United States"
+        },
+        "size": 11241,
+        "encodedSize": 4021,
+        "countries": [
+          "US",
+          "US"
+        ],
+        "index": 0,
+        "ipv6": true,
+        "redirects": 0,
+        "count": null
+      }
+    ]
+  },
+  "meta": {
+    "processors": {
+      "download": {
+        "state": "done",
+        "data": []
+      },
+      "geoip": {
+        "state": "done",
+        "data": [
+          {
+            "ip": "2606:4700:3035::681c:1808",
+            "geoip": {
+              "range": "",
+              "country": "US",
+              "region": "",
+              "city": "",
+              "ll": [
+                37.751,
+                -97.822
+              ],
+              "metro": 0,
+              "area": 100,
+              "eu": "0",
+              "timezone": "America/Chicago",
+              "country_name": "United States"
+            }
+          }
+        ]
+      },
+      "rdns": {
+        "state": "done",
+        "data": []
+      },
+      "wappa": {
+        "state": "done",
+        "data": [
+          {
+            "app": "CloudFlare",
+            "confidence": [
+              {
+                "pattern": "headers server /^cloudflare$/i",
+                "confidence": 100
+              }
+            ],
+            "confidenceTotal": 100,
+            "icon": "CloudFlare.svg",
+            "website": "http://www.cloudflare.com",
+            "categories": [
+              {
+                "name": "CDN",
+                "priority": 9
+              }
+            ]
+          }
+        ]
+      },
+      "asn": {
+        "state": "done",
+        "data": [
+          {
+            "ip": "2606:4700:3035::681c:1808",
+            "asn": "13335",
+            "country": "US",
+            "registrar": "arin",
+            "date": "2010-07-14",
+            "description": "CLOUDFLARENET, US",
+            "route": "2606:4700:3035::/48",
+            "name": "CLOUDFLARENET"
+          }
+        ]
+      },
+      "done": {
+        "state": "done",
+        "data": {
+          "state": "done"
+        }
+      }
+    }
+  },
+  "task": {
+    "uuid": "1d4a85eb-09ff-4f9f-bcd3-2eb30f5b954e",
+    "time": "2020-03-22T17:35:27.350Z",
+    "url": "http://gammanueta.org",
+    "visibility": "public",
+    "options": {
+      "useragent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+    },
+    "method": "manual",
+    "source": "web",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36",
+    "reportURL": "https://urlscan.io/result/1d4a85eb-09ff-4f9f-bcd3-2eb30f5b954e/",
+    "screenshotURL": "https://urlscan.io/screenshots/1d4a85eb-09ff-4f9f-bcd3-2eb30f5b954e.png",
+    "domURL": "https://urlscan.io/dom/1d4a85eb-09ff-4f9f-bcd3-2eb30f5b954e/"
+  },
+  "page": {
+    "url": "http://gammanueta.org/",
+    "domain": "gammanueta.org",
+    "country": "US",
+    "city": "",
+    "server": "cloudflare",
+    "ip": "2606:4700:3035::681c:1808",
+    "ptr": "",
+    "asn": "AS13335",
+    "asnname": "CLOUDFLARENET, US"
+  },
+  "lists": {
+    "ips": [
+      "2606:4700:3035::681c:1808"
+    ],
+    "countries": [
+      "US"
+    ],
+    "asns": [
+      "13335"
+    ],
+    "domains": [
+      "gammanueta.org"
+    ],
+    "servers": [
+      "cloudflare"
+    ],
+    "urls": [
+      "http://gammanueta.org/",
+      "http://gammanueta.org/icons/openlogo-75.png"
+    ],
+    "linkDomains": [
+      "httpd.apache.org",
+      "bugs.debian.org"
+    ],
+    "certificates": [],
+    "hashes": [
+      "15e1fc30bc8a5b5b4af6546df2864a38ca7a2b706daf955e2a9d53f9ebeed809",
+      "d50b9852ce176350c41f3a8b9bc01132659f8b18b9ccec1cdea6e98d28176daf"
+    ]
+  },
+  "verdicts": {
+    "overall": {
+      "score": 0,
+      "categories": [],
+      "brands": [],
+      "tags": [],
+      "malicious": false,
+      "hasVerdicts": 0
+    },
+    "urlscan": {
+      "score": 0,
+      "categories": [],
+      "brands": [],
+      "tags": [],
+      "detectionDetails": [],
+      "malicious": false
+    },
+    "engines": {
+      "score": 0,
+      "malicious": [],
+      "benign": [],
+      "maliciousTotal": 0,
+      "benignTotal": 0,
+      "verdicts": [],
+      "enginesTotal": 0
+    },
+    "community": {
+      "score": 0,
+      "votes": [],
+      "votesTotal": 0,
+      "votesMalicious": 0,
+      "votesBenign": 0,
+      "tags": [],
+      "categories": []
+    }
+  }
+}
