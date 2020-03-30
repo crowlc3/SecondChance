@@ -17,7 +17,8 @@
   "permissions": [
     "<all_urls>",
     "webRequest",
-    "webRequestBlocking"
+    "webRequestBlocking",
+    "storage"
   ],
   "background": {
     "scripts": [ "detect.js", "catch.js" ],
