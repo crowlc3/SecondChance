@@ -34,26 +34,6 @@ Responses to client should return JSON structure like such:
 require('dotenv').config();
 const got = require('got');
 
-// Connect to the database
-const { Client } = require('pg');
-const client = new Client({
-	host: process.env.SDD_DB_HOST,
-	port: process.env.SDD_DB_PORT,
-	user: process.env.SDD_DB_USER,
-	password: process.env.SDD_DB_PASS,
-	database: process.env.SDD_DB_DATA,
-	query_timeout: 2000
-});
-
-client.connect(err => {
-	if (err) {
-		console.error('Error: Cannot connect to secondchance database: ', err.stack);
-	}
-	else{
-    	console.log('Connected to secondchance database.');
-  	}
-});
-
 // This portion handles the redirected requests from my webserver
 exports.checkLink = function(url, callback){
 	// Clean the URL of all unwanted noise
@@ -71,11 +51,12 @@ exports.checkLink = function(url, callback){
 				callback(resDB);
 			}
 		});
-	});
-
-		
+	});		
 }
 
+/*===============================================================================
+API CLASS
+===============================================================================*/
 
 // Make an API call with a url, if quota is met, return false and add to queue
 function makeAPICall(url, callback){
@@ -105,7 +86,6 @@ function makeAPICall(url, callback){
 			callback({ success: false });
 			console.log('Ran out of quota.');
 			addToQueue(url);
-			
 		}
 		// Successful response, return then add to master
 		else if(res.statusCode == 200){
@@ -133,6 +113,33 @@ function makeAPICall(url, callback){
 function makeQueueAPICall(url, callback){
 	console.log("todo");
 }
+
+
+/*===============================================================================
+DATABASE CLASS
+===============================================================================*/
+
+// Connect to the database
+
+// These are variables class
+const { Client } = require('pg');
+const client = new Client({
+	host: process.env.SDD_DB_HOST,
+	port: process.env.SDD_DB_PORT,
+	user: process.env.SDD_DB_USER,
+	password: process.env.SDD_DB_PASS,
+	database: process.env.SDD_DB_DATA,
+	query_timeout: 2000
+});
+
+client.connect(err => {
+	if (err) {
+		console.error('Error: Cannot connect to secondchance database: ', err.stack);
+	}
+	else{
+    	console.log('Connected to secondchance database.');
+  	}
+});
 
 // Read the top most item from the queue
 function processQueue(){
@@ -189,6 +196,10 @@ function addToMaster(url, score, safe){
 		}
 	});
 }
+
+/*===============================================================================
+BACKEND LINK CLASS
+===============================================================================*/
 
 // Ensure that a URL provided is real and in the right form
 function sanitizeURL(url, callback){
