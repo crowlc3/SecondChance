@@ -6,12 +6,12 @@
 
 /*$(function(){
 	$('#whitelistlink').click(function(){
-		chrome.storage.sync.get('total',function(linky){
+		chrome.storage.sync.get('link',function(linky){
 			//var linkadd = $('#linkadd').val();
-			//$('#total').text(linkadd);
+			//$('#link').text(linkadd);
 			var l = $('#l').val();
-			chrome.storage.sync.set({'total': l});
-			$('#total').text(l);
+			chrome.storage.sync.set({'link': l});
+			$('#link').text(l);
 			$('#l').val('');
 		});
 	});
@@ -43,20 +43,20 @@
 
 $(function(){
 
-    chrome.storage.sync.get(['total'],function(budget){
-        $('#total').text(budget.total);
+    chrome.storage.sync.get(['link'],function(linkEnter){
+        $('#link').text(linkEnter.link);
     });
 
-    $('#spendAmount').click(function(){
-        chrome.storage.sync.get(['total'],function(budget){
-            var amount = $('#amount').val();
-            var newTotal = amount;
+    $('#whiteList').click(function(){
+        chrome.storage.sync.get(['link'],function(linkEnter){
+            var linky = $('#linky').val();
+            var newLink = linky;
 
-            chrome.storage.sync.set({'total': newTotal});
+            chrome.storage.sync.set({'link': newLink});
 
 
-            $('#total').text(newTotal);
-            $('#amount').val('');
+            $('#link').text(newLink);
+            $('#linky').val('');
         });
     });
 });
