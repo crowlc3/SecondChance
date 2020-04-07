@@ -6,11 +6,11 @@
 
 /*$(function(){
 	$('#whitelistlink').click(function(){
-		chrome.storage.sync.get('link',function(linky){
+		chrome.storage.local.get('link',function(linky){
 			//var linkadd = $('#linkadd').val();
 			//$('#link').text(linkadd);
 			var l = $('#l').val();
-			chrome.storage.sync.set({'link': l});
+			chrome.storage.local.set({'link': l});
 			$('#link').text(l);
 			$('#l').val('');
 		});
@@ -43,16 +43,16 @@
 
 $(function(){
 
-    chrome.storage.sync.get(['link'],function(linkEnter){
+    chrome.storage.local.get(['link'],function(linkEnter){
         $('#link').text(linkEnter.link);
     });
 
     $('#whiteList').click(function(){
-        chrome.storage.sync.get(['link'],function(linkEnter){
+        chrome.storage.local.get(['link'],function(linkEnter){
             var linky = $('#linky').val();
             var newLink = linky;
 
-            chrome.storage.sync.set({'link': newLink});
+            chrome.storage.local.set({'link': newLink});
 
 
             $('#link').text(newLink);
