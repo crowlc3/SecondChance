@@ -1,20 +1,62 @@
-document.addEventListener('DOMContentLoaded', function() {
-  var checkPageButton = document.getElementById('checkPage');
-  checkPageButton.addEventListener('click', function() {
+// $(function(){
+//   $('#name').keyup(function(){
+//     $('#greet').text('Hello Bitch' + $('#name').val());
+//   })
+// });
 
-    chrome.tabs.getSelected(null, function(tab) {
-      d = document;
+/*$(function(){
+	$('#whitelistlink').click(function(){
+		chrome.storage.local.get('link',function(linky){
+			//var linkadd = $('#linkadd').val();
+			//$('#link').text(linkadd);
+			var l = $('#l').val();
+			chrome.storage.local.set({'link': l});
+			$('#link').text(l);
+			$('#l').val('');
+		});
+	});
+});*/
 
-      var f = d.createElement('form');
-      f.action = 'http://gtmetrix.com/analyze.html?bm';
-      f.method = 'post';
-      var i = d.createElement('input');
-      i.type = 'hidden';
-      i.name = 'url';
-      i.value = tab.url;
-      f.appendChild(i);
-      d.body.appendChild(f);
-      f.submit();
+
+
+// document.addEventListener('DOMContentLoaded', function() {
+//   var checkPageButton = document.getElementById('checkPage');
+//   checkPageButton.addEventListener('click', function() {
+
+//     chrome.tabs.getSelected(null, function(tab) {
+//       d = document;
+
+//       var f = d.createElement('form');
+//       f.action = 'http://gtmetrix.com/analyze.html?bm';
+//       f.method = 'post';
+//       var i = d.createElement('input');
+//       i.type = 'hidden';
+//       i.name = 'url';
+//       i.value = tab.url;
+//       f.appendChild(i);
+//       d.body.appendChild(f);
+//       f.submit();
+//     });
+//   }, false);
+// }, false);
+
+
+$(function(){
+
+    chrome.storage.local.get(['link'],function(linkEnter){
+        $('#link').text(linkEnter.link);
     });
-  }, false);
-}, false);
+
+    $('#whiteList').click(function(){
+        chrome.storage.local.get(['link'],function(linkEnter){
+            var linky = $('#linky').val();
+            var newLink = linky;
+
+            chrome.storage.local.set({'link': newLink});
+
+
+            $('#link').text(newLink);
+            $('#linky').val('');
+        });
+    });
+});

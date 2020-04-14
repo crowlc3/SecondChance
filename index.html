@@ -4,10 +4,39 @@
 		<meta charset = "utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Second Chance Sandbox</title>
+		<script src="index.js"></script>
+		<script src = "jquery-3.4.1.min.js"></script>
 	</head>
 	<body>
 		Second Chance Sandbox Site<br /> <br />
 
-		<a href="https://www.w3schools.com/html/">Visit our HTML tutorial</a>
-	</body>
+		<a href="https://www.google.com">goodlink</a>
+		<br /> <br />
+		<br /> <br />
+		<a href="https://www.google.com">badlink</a>
+		<br /> <br />
+		
+
+		<button id="show">Open!</button>
+		<dialog id="dialog">
+		  <form method="dialog">
+		    <p>Would You Like To Continue?</p>
+		    <button type="submit" value="yes">Yes</button>
+		    <button type="submit" value="no" autofocus>No</button>
+		  </form>
+		</dialog>
+			<script>
+			 var dialog = document.getElementById('dialog');
+			 //dialog.showModal();
+			 document.querySelector('#show').onclick=function(){dialog.showModal();};
+			 dialog.addEventListener('close', function (event) {
+			   if (dialog.returnValue == 'yes') {
+			     // ...
+			   } else {
+			     // ...
+			   }
+			 });
+			</script>
+
+		</body>
 </html>
