@@ -36,7 +36,7 @@ function url_filter(url, check) {
 
 chrome.webRequest.onBeforeRequest.addListener(function (details) {
     
-    if (url !== details.url && details.type === "main_frame") {
+    if (details.type === "main_frame") {
 
         url = details.url;
         console.log(url);
@@ -48,17 +48,19 @@ chrome.webRequest.onBeforeRequest.addListener(function (details) {
         }
 
         /*
-        analysis_running = 1;
-        //call url analysis
-        if (analysis_running ) {
+       //call url analysis
 
+        if (safe) {
+            return  {redirectUrl: url}
+        }
+        else{
+            //silently block redirect from occuring
+            return { redirectUrl: "javascript:" };
         }
         */
 
-        //silently block redirect from occuring
-        //return { redirectUrl: "javascript:" };
+        
     }
-
 },
     {urls: ["<all_urls>"]
 }, ["blocking"]);
