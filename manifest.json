@@ -22,7 +22,7 @@
     "storage"
   ],
   "background": {
-    "scripts": [ "detect.js", "catch.js" ],
+    "scripts": [ "detect.js", "catch2.js" ],
     "persistent": true
   },
 
