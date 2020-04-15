@@ -45,6 +45,8 @@ chrome.webRequest.onBeforeRequest.addListener(function (details) {
                     chrome.tabs.update({ url: "http://chrispence.me" });
                 }
                 
+            }else{
+                chrome.tabs.update({url: url});
             };
 
 
