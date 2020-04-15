@@ -16,20 +16,34 @@ chrome.webRequest.onBeforeRequest.addListener(function (details) {
         console.log(url);
         var GOOD = 0; BAD = 1; STILLPROCESSING = 2;
 
-        fetch("http://chrispence.me/secondchance?url=" + url).then( function(response) {
+        var hmm = fetch("http://chrispence.me/secondchance?url=" + url).then( function(response) {
             return response.json();
         }).then(function(parsedJson) {
             console.log(parsedJson)
-            if(parsedJson["success"] === true) {
-                if(parsedJson["safe"] === true) { return GOOD; }
-                else { return BAD; }
-            } else {
-                return STILLPROCESSING;
-            }
+            return parsedJson
         })
+        console.log("work bitcvh");
+        console.log(hmm);
         
+        if(hmm["success"] === true) {
+            if(hmm["safe"] === true) { return  {redirectUrl: url}}
+            else {return { redirectUrl: "javascript:" };}
+        } else {
+
+            return  {redirectUrl: url};
+        }
         //do something with data:
     }
 },
     {urls: ["<all_urls>"]
 }, ["blocking"]);
+
+
+
+            if(parsedJson["success"] === true) {
+                if(parsedJson["safe"] === true) { return  {redirectUrl: url}}
+                else {}
+            } else {
+
+                return  {redirectUrl: url};
+            }
