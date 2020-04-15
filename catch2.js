@@ -14,6 +14,7 @@ chrome.webRequest.onBeforeRequest.addListener(function (details) {
 
         url = details.url;
         console.log(url);
+        var jsonObj;
 
         // var reqMade = $.get("chrispence.me/secondchance?url=" + url, {})
         //                 .done(function( data ) { 
@@ -21,8 +22,10 @@ chrome.webRequest.onBeforeRequest.addListener(function (details) {
         //                 });
 
         fetch("http://chrispence.me/secondchance?url=" + url).then( function(response) {
-		    console.log(response.json());
-		})
+            return response.json();
+        }).then(function(parsedJson) {
+            console.log('This is the parsed json', parsedJson["success"]);
+        })
         
         //do something with data:
     }
