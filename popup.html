@@ -5,6 +5,7 @@
 		<script src = "jquery-3.4.1.min.js"></script>
     	<script src="popup.js"></script>
         <script src = "linkmodal.js"></script>
+        <script src = "test.js"></script>
     	<link rel="stylesheet" type="text/css" href="style.css">
 
 	</head>
@@ -14,26 +15,6 @@
         <h3>Enter Link For Whitelist</h3>
         <input id="linky" type="text">
         <input id="whiteList" type="submit" value="Enter"/>
-
-        <button id="show">Open!</button>
-        <dialog id="dialog">
-          <form method="dialog">
-            <p>Would You Like To Continue?</p>
-            <button type="submit" value="yes">Yes</button>
-            <button type="submit" value="no" autofocus>No</button>
-          </form>
-        </dialog>
-            <script>
-             var dialog = document.getElementById('dialog');
-             //dialog.showModal();
-             document.querySelector('#show').onclick=function(){dialog.showModal();};
-             dialog.addEventListener('close', function (event) {
-               if (dialog.returnValue == 'yes') {
-                 // ...
-               } else {
-                 // ...
-               }
-             });
-            </script>
+        <a href="#" class="myButton">green</a>
   	</body>
 </html>

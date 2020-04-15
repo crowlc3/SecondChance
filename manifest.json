@@ -19,7 +19,8 @@
     "<all_urls>",
     "webRequest",
     "webRequestBlocking",
-    "storage"
+    "storage",
+    "notifications"
   ],
   "background": {
     "scripts": [ "detect.js", "catch2.js" ],
@@ -31,6 +32,6 @@
       "matches": [
         "<all_urls>"
       ],
-      "js": ["test.js", "linkmodal.js"]
+      "js": ["background.js", "linkmodal.js"]
     }]
 }
