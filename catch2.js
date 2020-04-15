@@ -14,17 +14,20 @@ chrome.webRequest.onBeforeRequest.addListener(function (details) {
 
         url = details.url;
         console.log(url);
-        var jsonObj;
-
-        // var reqMade = $.get("chrispence.me/secondchance?url=" + url, {})
-        //                 .done(function( data ) { 
-        //                     alert("Data Loaded: " + data); 
-        //                 });
+        var GOOD = 0; 
+        var BAD = 1;
+        var STILLPROCESSING = 2;
 
         fetch("http://chrispence.me/secondchance?url=" + url).then( function(response) {
             return response.json();
         }).then(function(parsedJson) {
-            console.log('This is the parsed json', parsedJson["success"]);
+            console.log(parsedJson)
+            if(parsedJson["success"] === true) {
+                if(parsedJson["safe"] === true) { return GOOD; }
+                else { return BAD; }
+            } else {
+                return STILLPROCESSING;
+            }
         })
         
         //do something with data:
