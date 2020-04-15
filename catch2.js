@@ -25,7 +25,7 @@ chrome.webRequest.onBeforeRequest.addListener(function (details) {
     // console.log(urlwork);
     // console.log("hererererer3er");
 
-    if (details.type === "main_frame") {
+    if (details.type === "main_frame" && details.url != 'https://chrispence.me' && details.url != url) {
 
         url = details.url;
         console.log(url);
@@ -42,7 +42,7 @@ chrome.webRequest.onBeforeRequest.addListener(function (details) {
                 if(parsedJson["safe"] === true) { 
                     chrome.tabs.update({url: url});
                 } else {
-                    chrome.tabs.update({url: "http://chrispence.me"});
+                    chrome.tabs.update({ url: "http://chrispence.me" });
                 }
                 
             };
