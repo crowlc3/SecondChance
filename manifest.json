@@ -4,6 +4,7 @@
   "name": "Second Chance",
   "description": "SD&D",
   "version": "1.0",
+
   "icons":{
     "128": "icon128.png",
     "48": "icon48.png",
@@ -23,5 +24,13 @@
   "background": {
     "scripts": [ "detect.js", "catch.js" ],
     "persistent": true
-  }
+  },
+
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": ["test.js", "linkmodal.js"]
+    }]
 }
