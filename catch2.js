@@ -5,19 +5,7 @@
 //ex. https://ssl.gstatic.com/docs/common/netcheck.gif* --> find way to get wildcards to work
 //maybe something like url.include("ssl.gstatic.com") === 0? --> may need import though
 
-var url = "";
-var analysis_running = 0;
-
-
-
-
-
-
-
-
-
-
-
+var url = "https://chrispence.me";
 
 chrome.webRequest.onBeforeRequest.addListener(function (details) {
     // var urlwork = ""
@@ -27,26 +15,24 @@ chrome.webRequest.onBeforeRequest.addListener(function (details) {
 
     if (details.type === "main_frame" && details.url != 'https://chrispence.me' && details.url != url) {
 
-        url = details.url;
-        console.log(url);
         var GOOD = 0; BAD = 1; STILLPROCESSING = 2;
 
-
-
-        fetch("http://chrispence.me/secondchance?url=" + url).then( function(response) {
+        fetch("http://chrispence.me/secondchance?url=" + details.url).then( function(response) {
             return response.json();
         }).then(function(parsedJson) {
-            console.log(parsedJson)
+            console.log(parsedJson);
             
             if(parsedJson["success"] === true) {
-                if(parsedJson["safe"] === true) { 
-                    chrome.tabs.update({url: url});
+                if (parsedJson["safe"] === true) { 
+                    url = details.url;
+                    chrome.tabs.update({url: details.url});
                 } else {
-                    chrome.tabs.update({ url: "http://chrispence.me" });
+                    chrome.tabs.update({ url: url });
                 }
                 
-            }else{
-                chrome.tabs.update({url: url});
+            } else {
+                url = details.url;
+                chrome.tabs.update({url: details.url});
             };
 
 
