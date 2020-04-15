@@ -40,13 +40,11 @@ chrome.webRequest.onBeforeRequest.addListener(function (details) {
             
             if(parsedJson["success"] === true) {
                 if(parsedJson["safe"] === true) { 
-                    return  {redirectUrl: url};
+                    chrome.tabs.update({url: url});
                 } else {
-
-                    return { redirectUrl: urlwork };}
-            } else {
-                    console.log("hello3");
-                return  {redirectUrl: url};
+                    chrome.tabs.update({url: "http://chrispence.me"});
+                }
+                
             };
 
 
