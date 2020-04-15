@@ -26,7 +26,7 @@ chrome.webRequest.onBeforeRequest.addListener(function (details) {
         console.log(hmm);
         
         if(hmm["success"] === true) {
-            if(hmm["safe"] === true) { return  {redirectUrl: url}}
+            if(hmm["safe"] === true) { return  {redirectUrl: url};}
             else {return { redirectUrl: "javascript:" };}
         } else {
 
@@ -40,10 +40,3 @@ chrome.webRequest.onBeforeRequest.addListener(function (details) {
 
 
 
-            if(parsedJson["success"] === true) {
-                if(parsedJson["safe"] === true) { return  {redirectUrl: url}}
-                else {}
-            } else {
-
-                return  {redirectUrl: url};
-            }
