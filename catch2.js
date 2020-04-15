@@ -15,10 +15,14 @@ chrome.webRequest.onBeforeRequest.addListener(function (details) {
         url = details.url;
         console.log(url);
 
-        var reqMade = $.get("chrispence.me/secondchance?url=" + url, {})
-                        .done(function( data ) { 
-                            alert("Data Loaded: " + data); 
-                        });
+        // var reqMade = $.get("chrispence.me/secondchance?url=" + url, {})
+        //                 .done(function( data ) { 
+        //                     alert("Data Loaded: " + data); 
+        //                 });
+
+        fetch("http://chrispence.me/secondchance?url=" + url).then( function(response) {
+		    console.log(response);
+		})
         
         //do something with data:
     }
