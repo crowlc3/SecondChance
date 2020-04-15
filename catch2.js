@@ -14,9 +14,7 @@ chrome.webRequest.onBeforeRequest.addListener(function (details) {
 
         url = details.url;
         console.log(url);
-        var GOOD = 0; 
-        var BAD = 1;
-        var STILLPROCESSING = 2;
+        var GOOD = 0; BAD = 1; STILLPROCESSING = 2;
 
         fetch("http://chrispence.me/secondchance?url=" + url).then( function(response) {
             return response.json();
