@@ -20,7 +20,8 @@
     "webRequest",
     "webRequestBlocking",
     "storage",
-    "http://chrispence.me/secondchance"
+    "http://chrispence.me/secondchance",
+    "tabs"
   ],
   "background": {
     "scripts": [ "jquery-3.4.1.min.js", "detect.js", "catch2.js"],

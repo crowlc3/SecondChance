@@ -8,30 +8,52 @@
 var url = "";
 var analysis_running = 0;
 
+
+
+
+
+
+
+
+
+
+
+
 chrome.webRequest.onBeforeRequest.addListener(function (details) {
-    
+    // var urlwork = ""
+    // chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {urlwork = tabs[0].url;});
+    // console.log(urlwork);
+    // console.log("hererererer3er");
+
     if (details.type === "main_frame") {
 
         url = details.url;
         console.log(url);
         var GOOD = 0; BAD = 1; STILLPROCESSING = 2;
 
-        var hmm = fetch("http://chrispence.me/secondchance?url=" + url).then( function(response) {
+
+
+        fetch("http://chrispence.me/secondchance?url=" + url).then( function(response) {
             return response.json();
         }).then(function(parsedJson) {
             console.log(parsedJson)
-            return parsedJson
-        })
-        console.log("work bitcvh");
-        console.log(hmm);
-        
-        if(hmm["success"] === true) {
-            if(hmm["safe"] === true) { return  {redirectUrl: url};}
-            else {return { redirectUrl: "javascript:" };}
-        } else {
+            
+            if(parsedJson["success"] === true) {
+                if(parsedJson["safe"] === true) { 
+                    return  {redirectUrl: url};
+                } else {
 
-            return  {redirectUrl: url};
-        }
+                    return { redirectUrl: urlwork };}
+            } else {
+                    console.log("hello3");
+                return  {redirectUrl: url};
+            };
+
+
+
+        });
+
+        
         //do something with data:
     }
 },
