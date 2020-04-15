@@ -17,6 +17,7 @@ chrome.webRequest.onBeforeRequest.addListener(function (details) {
         var reqMade = $.get("chrispence.me/secondchance?url=" + url,  {
                         alert( "Data Loaded: " + data );
                       });
+        //do something with data:
     }
 },
     {urls: ["<all_urls>"]
