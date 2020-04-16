@@ -13,7 +13,7 @@ chrome.webRequest.onBeforeRequest.addListener(function (details) {
     // console.log(urlwork);
     // console.log("hererererer3er");
 
-    if (details.type === "main_frame" && details.url != 'https://chrispence.me' && details.url != url) {
+    if (details.type === "main_frame" && details.url != 'https://chrispence.me' && details.url != url && url_filter(details.url, "chrome-extension:") === false) {
 
         var GOOD = 0; BAD = 1; STILLPROCESSING = 2;
 
