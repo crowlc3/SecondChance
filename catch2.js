@@ -23,10 +23,10 @@ chrome.webRequest.onBeforeRequest.addListener(function (details) {
             console.log(parsedJson);
 
             if (confirm("Do you want to continue?")) {
-            //Continue
-            } else {
-            //Do not continue
-            }
+        //Continue
+        } else {
+        //Do not continue
+        }
             
             if(parsedJson["success"] === true) {
                 if (parsedJson["safe"] === true) { 
