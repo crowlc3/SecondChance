@@ -12,7 +12,6 @@ function url_filter(url, check) {
 
     var x;
     for (x = 0; x < (url.length - check.length + 1); x++) {
-
         if (url[x] === check[0]) {
             var y;
             let cont = 1;
@@ -42,17 +41,23 @@ chrome.webRequest.onBeforeRequest.addListener(function (details) {
 
             if (parsedJson["success"] === true) {
                 if (parsedJson["safe"] === true) {
-                    url = details.url;
-                    chrome.tabs.update({ url: details.url });
+                    setTimeout(function () {
+                        url = details.url;
+                        chrome.tabs.update({ url: details.url });
+                    }, 300);
                 } else {
 
                     if (confirm("Do you want to continue?")) {
                         //Continue
-                        url = details.url;
-                        chrome.tabs.update({ url: details.url });
+                        setTimeout(function () {
+                            url = details.url;
+                            chrome.tabs.update({ url: details.url });
+                        }, 300);
                     } else {
                         //Do not continue
-                        chrome.tabs.update({ url: url });
+                        setTimeout(function () {
+                            chrome.tabs.update({ url: url });
+                        }, 300);
                     }
                     
                 }
