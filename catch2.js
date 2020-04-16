@@ -9,7 +9,7 @@ var url = "https://chrispence.me";
 
 //we're running an O(N + M) solution here since we dont know the import
 //We use the url filter to check if a link has been visited or not?
-// Question for howard -> redundancy on line 40 as we check via ==
+//More robust string comparison, where link may be the same but with https added or www left out etc.
 function url_filter(url, check) {
 
     var x;
