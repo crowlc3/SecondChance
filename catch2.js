@@ -10,7 +10,8 @@ var url = "https://chrispence.me";
 //we're running an O(N + M) solution here since we dont know the import
 //For link comparison
 //More robust string comparison (substring), 
-//where link may be the same but with https added or www left out etc.
+//where link destination might be the same (i.e google.com) 
+//but with https added or www left out etc. (www.google.com vs https://google.com...)
 function url_filter(url, check) {
 
     var x;
