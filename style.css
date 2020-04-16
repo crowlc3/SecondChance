@@ -4,13 +4,42 @@ h2 {
 
 #demoFont {
 font-family: "Lucida Console", Monaco, monospace;
-font-size: 25px;
+font-size: 30px;
 letter-spacing: 2px;
 word-spacing: 2px;
-color: #FF0000;
-font-weight: 700;
+color: #c70000;
+font-weight: normal;
 text-decoration: none;
 font-style: normal;
 font-variant: normal;
 text-transform: none;
 }
+
+
+#demoFont2 {
+font-family: "Lucida Console", Monaco, monospace;
+font-size: 15px;
+letter-spacing: 2px;
+word-spacing: 2px;
+color: #820000;
+font-weight: normal;
+text-decoration: none;
+font-style: normal;
+font-variant: normal;
+text-transform: none;
+}
+
+#demoFont3 {
+font-family: "Lucida Console", Monaco, monospace;
+font-size: 12px;
+letter-spacing: 2px;
+word-spacing: 2px;
+color: #610000;
+font-weight: normal;
+text-decoration: none;
+font-style: normal;
+font-variant: normal;
+text-transform: none;
+}
+
+body {background-color: #e3e3e3;}
