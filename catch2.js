@@ -12,7 +12,7 @@ function url_filter(url, check) {
 
     var x;
     for (x = 0; x < (url.length - check.length + 1); x++) {
-        //console.log();
+
         if (url[x] === check[0]) {
             var y;
             let cont = 1;
@@ -23,25 +23,17 @@ function url_filter(url, check) {
                 }
             }
             if (cont === 1) {
-                //console.log("this is a match");
                 return true;
             }
         }
     }
-    //console.log("not a match");
     return false;
 
 }
 
 chrome.webRequest.onBeforeRequest.addListener(function (details) {
-    // var urlwork = ""
-    // chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {urlwork = tabs[0].url;});
-    // console.log(urlwork);
-    // console.log("hererererer3er");
-
-    if ((details.type === "main_frame") && (details.url != 'https://chrispence.me') && (details.url != url) && (url_filter(details.url, "chrome-extension:") === false)) {
-
-        var GOOD = 0; BAD = 1; STILLPROCESSING = 2;
+    
+    if ((details.type === "main_frame") && (details.url !== 'https://chrispence.me') && (details.url !== url) && (url_filter(details.url, "chrome-extension:") === false) && (url_filter(details.url, url) === false)) {
 
         fetch("http://chrispence.me/secondchance?url=" + details.url).then(function (response) {
             return response.json();
@@ -65,13 +57,8 @@ chrome.webRequest.onBeforeRequest.addListener(function (details) {
                     
                 }
 
-            } else {
-                url = details.url;
-                chrome.tabs.update({ url: details.url });
-            };
-
-
-
+            }
+            
         });
 
 
