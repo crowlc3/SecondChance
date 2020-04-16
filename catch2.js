@@ -9,7 +9,7 @@ var url = "https://chrispence.me";
 
 //we're running an O(N + M) solution here since we dont know the import
 //We use the url filter to check if a link has been visited or not?
-// Question for howard -> isn't this redundant as we check: details.url !== url as well?
+// Question for howard -> redundancy on line 40 as we check via ==
 function url_filter(url, check) {
 
     var x;
