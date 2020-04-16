@@ -1,47 +1,4 @@
-// $(function(){
-//   $('#name').keyup(function(){
-//     $('#greet').text('Hello Bitch' + $('#name').val());
-//   })
-// });
-
-/*$(function(){
-	$('#whitelistlink').click(function(){
-		chrome.storage.local.get('link',function(linky){
-			//var linkadd = $('#linkadd').val();
-			//$('#link').text(linkadd);
-			var l = $('#l').val();
-			chrome.storage.local.set({'link': l});
-			$('#link').text(l);
-			$('#l').val('');
-		});
-	});
-});*/
-
-
-
-// document.addEventListener('DOMContentLoaded', function() {
-//   var checkPageButton = document.getElementById('checkPage');
-//   checkPageButton.addEventListener('click', function() {
-
-//     chrome.tabs.getSelected(null, function(tab) {
-//       d = document;
-
-//       var f = d.createElement('form');
-//       f.action = 'http://gtmetrix.com/analyze.html?bm';
-//       f.method = 'post';
-//       var i = d.createElement('input');
-//       i.type = 'hidden';
-//       i.name = 'url';
-//       i.value = tab.url;
-//       f.appendChild(i);
-//       d.body.appendChild(f);
-//       f.submit();
-//     });
-//   }, false);
-// }, false);
-
-
-$(function(){
+$(function whitelist(){
 
     chrome.storage.local.get(['link'],function(linkEnter){
         $('#link').text(linkEnter.link);
