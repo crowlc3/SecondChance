@@ -39,7 +39,7 @@ chrome.webRequest.onBeforeRequest.addListener(function (details) {
     // console.log(urlwork);
     // console.log("hererererer3er");
 
-    if (details.type === "main_frame" && details.url !== 'https://chrispence.me' && details.url !== url && url_filter(details.url, "chrome-extension:") === false) {
+    if ((details.type === "main_frame") && (details.url != 'https://chrispence.me') && (details.url != url) && (url_filter(details.url, "chrome-extension:") === false)) {
 
         var GOOD = 0; BAD = 1; STILLPROCESSING = 2;
 
@@ -48,18 +48,21 @@ chrome.webRequest.onBeforeRequest.addListener(function (details) {
         }).then(function (parsedJson) {
             console.log(parsedJson);
 
-            if (confirm("Do you want to continue?")) {
-                //Continue
-            } else {
-                //Do not continue
-            }
-
             if (parsedJson["success"] === true) {
                 if (parsedJson["safe"] === true) {
                     url = details.url;
                     chrome.tabs.update({ url: details.url });
                 } else {
-                    chrome.tabs.update({ url: url });
+
+                    if (confirm("Do you want to continue?")) {
+                        //Continue
+                        url = details.url;
+                        chrome.tabs.update({ url: details.url });
+                    } else {
+                        //Do not continue
+                        chrome.tabs.update({ url: url });
+                    }
+                    
                 }
 
             } else {
