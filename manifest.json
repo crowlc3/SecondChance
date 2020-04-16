@@ -33,6 +33,6 @@
       "matches": [
         "<all_urls>"
       ],
-      "js": ["test.js", "linkmodal.js"]
+      "js": ["catch2.js"]
     }]
 }
