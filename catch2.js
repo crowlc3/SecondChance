@@ -21,6 +21,19 @@ chrome.webRequest.onBeforeRequest.addListener(function (details) {
             return response.json();
         }).then(function(parsedJson) {
             console.log(parsedJson);
+
+
+            /*document.body.addEventListener("click", function(e) {
+            if(e.target && e.target.nodeName == "A") {
+                var txt;
+                  if (confirm("Do you want to continue?")) {
+                    txt = "You pressed OK!";
+                  } else {
+                    txt = "You pressed Cancel!";
+                  }
+                  document.getElementById("demo").innerHTML = txt;
+                }
+            });*/ //THIS IS THE POPUP CODE
             
             if(parsedJson["success"] === true) {
                 if (parsedJson["safe"] === true) { 

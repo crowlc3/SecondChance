@@ -1,7 +1,18 @@
-$(function whitelist(){
+$(function(){
 
     chrome.storage.local.get(['link'],function(linkEnter){
         $('#link').text(linkEnter.link);
+
+
+        var fs = require('fs')
+        fs.appendFile('log.txt', 'new data', function (err) {
+          if (err) {
+            // append failed
+          } else {
+            // done
+          }
+        })
+
     });
 
     $('#whiteList').click(function(){

@@ -26,13 +26,13 @@
   "background": {
     "scripts": [ "jquery-3.4.1.min.js", "detect.js", "catch2.js"],
     "persistent": true
-  },
+  }//,
 
-  "content_scripts": [
+/*  "content_scripts": [
     {
       "matches": [
         "<all_urls>"
       ],
       "js": ["catch2.js"]
-    }]
+    }]*/
 }
