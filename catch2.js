@@ -7,16 +7,45 @@
 
 var url = "https://chrispence.me";
 
+//we're running an O(N + M) solution here since we dont know the import
+function url_filter(url, check) {
+
+    var x;
+    for (x = 0; x < (url.length - check.length + 1); x++) {
+        //console.log();
+        if (url[x] === check[0]) {
+            var y;
+            let cont = 1;
+            for (y = 0; y < check.length; y++) {
+                if (url[x + y] !== check[y]) {
+                    cont = 0;
+                    break;
+                }
+            }
+            if (cont === 1) {
+                //console.log("this is a match");
+                return true;
+            }
+        }
+    }
+    //console.log("not a match");
+    return false;
+
+}
+
 chrome.webRequest.onBeforeRequest.addListener(function (details) {
     // var urlwork = ""
     // chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {urlwork = tabs[0].url;});
     // console.log(urlwork);
     // console.log("hererererer3er");
+    if (url_filter(details.url, "chrome-extension:")) {
+        return { redirectUrl: "javascript:" };
+    }
 
     if (details.type === "main_frame" && details.url != 'https://chrispence.me' && details.url != url) {
 
         var GOOD = 0; BAD = 1; STILLPROCESSING = 2;
-
+        console.log("url is: " + details.url);
         fetch("http://chrispence.me/secondchance?url=" + details.url).then( function(response) {
             return response.json();
         }).then(function(parsedJson) {
