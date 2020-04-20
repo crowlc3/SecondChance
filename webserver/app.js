@@ -54,6 +54,12 @@ exports.checkLink = function(url, callback){
 	});		
 }
 
+exports.updateLink = function(url, callback){
+	sanitizeURL(url, (cleanURL) => {
+		callback(updateMaster(cleanURL));
+	});
+}
+
 /*===============================================================================
 API CLASS
 ===============================================================================*/
@@ -194,6 +200,12 @@ function addToMaster(url, score, safe){
 		else{
 			return true;
 		}
+	});
+}
+
+function updateMaster(url){
+	client.query('UPDATE TABLE master SET safe = True WHERE url = $1', [url], (err, res) => {
+		return true;
 	});
 }
 
