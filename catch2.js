@@ -57,7 +57,7 @@ chrome.webRequest.onBeforeRequest.addListener(function (details) {
                     // if link was deemed unsafe, proc caitlin's popup where a user response will be needed
                     // if user wishes to continue, go in to if statement and navegate to link
                     // if user does not wish to continue, go into else statements where user will be sent to chris' website
-                    if (confirm("Do you want to continue?")) {
+                    if (confirm("We found this website to possibly be malicious. Do you want to continue?")) {
                         //Continue
                         setTimeout(function () {
                             url = details.url;
