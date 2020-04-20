@@ -204,7 +204,8 @@ function addToMaster(url, score, safe){
 }
 
 function updateMaster(url){
-	client.query('UPDATE TABLE master SET safe = True WHERE url = $1', [url], (err, res) => {
+	console.log(url);
+	client.query('UPDATE master SET safe = True WHERE url = $1;', [url], (err, res) => {
 		return true;
 	});
 }
