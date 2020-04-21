@@ -78,6 +78,3 @@ chrome.webRequest.onBeforeRequest.addListener(function (details) {
 },
     {urls: ["<all_urls>"]
 }, ["blocking"]);
-
-
-

@@ -6,23 +6,28 @@ $(function(){
         $('#link').text(linkEnter.link);
     });
 
-
-    chrome.storage.local.get(null,function(returnback){
-        console.log(returnback);
-    });
+    /*Print the link last entered*/
 
     $('#whiteList').click(function(){
         chrome.storage.local.get(['link'],function(linkEnter){
             var linky = $('#linky').val();
             var newLink = linky;
 
+            /*Retrieve entered link*/
+
             chrome.storage.local.set({'link': linky});
 
+            /*Store link*/
+
             fetch("https://chrispence.me/sddupdate?url=" + linky);
+
+            /*Add link to whitelist*/
 
 
             $('#link').text(newLink);
             $('#linky').val('');
+
+            /*Clear link last entered*/
         });
     });
 });
