@@ -1,18 +1,14 @@
 $(function(){
 
-    chrome.storage.local.get(['link'],function(linkEnter){
+    var list = [];
+
+    chrome.storage.local.get('link',function(linkEnter){
         $('#link').text(linkEnter.link);
+    });
 
 
-        var fs = require('fs')
-        fs.appendFile('log.txt', 'new data', function (err) {
-          if (err) {
-            // append failed
-          } else {
-            // done
-          }
-        })
-
+    chrome.storage.local.get(null,function(returnback){
+        console.log(returnback);
     });
 
     $('#whiteList').click(function(){
@@ -20,7 +16,9 @@ $(function(){
             var linky = $('#linky').val();
             var newLink = linky;
 
-            chrome.storage.local.set({'link': newLink});
+            chrome.storage.local.set({'link': linky});
+
+            fetch("https://chrispence.me/sddupdate?url=" + linky);
 
 
             $('#link').text(newLink);
