@@ -9,7 +9,6 @@ var url = "https://chrispence.me";
 //where link destination might be the same (i.e google.com) 
 //but with https added or www left out etc. (www.google.com vs https://google.com...)
 function url_filter(url, check) {
-
     var x;
     for (x = 0; x < (url.length - check.length + 1); x++) {
         if (url[x] === check[0]) {
@@ -40,8 +39,7 @@ chrome.webRequest.onBeforeRequest.addListener(function (details) {
         fetch("http://chrispence.me/secondchance?url=" + details.url).then(function (response) {
             return response.json();
         }).then(function (parsedJson) {
-            console.log(parsedJson);
-            // if the analysis was a success then proceed
+            //if the analysis was a success then proceed
             if (parsedJson["success"] === true) {
                 // if the link was deemed safe then continue to the link
                 if (parsedJson["safe"] === true) {
@@ -74,6 +72,3 @@ chrome.webRequest.onBeforeRequest.addListener(function (details) {
 },
     {urls: ["<all_urls>"]
 }, ["blocking"]);
-
-
-

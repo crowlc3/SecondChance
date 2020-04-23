@@ -35,6 +35,7 @@ require('dotenv').config();
 const got = require('got');
 
 // This portion handles the redirected requests from my webserver
+// This is the main routing method
 exports.checkLink = function(url, callback){
 	// Clean the URL of all unwanted noise
 	sanitizeURL(url, (cleanURL) => {
@@ -54,6 +55,8 @@ exports.checkLink = function(url, callback){
 	});		
 }
 
+// Overwrite a previus links score based on user input. This is purely used for testing purposes
+// as it dangerous to test on links that are known to be malicious
 exports.updateLink = function(url, callback){
 	sanitizeURL(url, (cleanURL) => {
 		callback(updateMaster(cleanURL));
@@ -94,6 +97,7 @@ function makeAPICall(url, callback){
 			addToQueue(url);
 		}
 		// Successful response, return then add to master
+		// Return back to user first for speed
 		else if(res.statusCode == 200){
 			decodeResults(JSON.parse(res.body).data.attributes.last_analysis_stats, url, (verdict) => {
 				callback(verdict);
@@ -109,17 +113,10 @@ function makeAPICall(url, callback){
 		
 	// Catch unknown errors
 	}).catch(error => {
-		
 		console.log(error);
 		callback({ success: false });
 	});
 }
-
-// Make API calls for the queue
-function makeQueueAPICall(url, callback){
-	console.log("todo");
-}
-
 
 /*===============================================================================
 DATABASE CLASS
@@ -128,6 +125,7 @@ DATABASE CLASS
 // Connect to the database
 
 // These are variables class
+// This is where the database connection singleton is created
 const { Client } = require('pg');
 const client = new Client({
 	host: process.env.SDD_DB_HOST,
@@ -214,7 +212,7 @@ function updateMaster(url){
 BACKEND LINK CLASS
 ===============================================================================*/
 
-// Ensure that a URL provided is real and in the right form
+// Ensure that a URL provided is formatted correctly
 function sanitizeURL(url, callback){
 	callback(
 		url.replace(
