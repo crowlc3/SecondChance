@@ -73,6 +73,13 @@ function makeAPICall(url, callback){
 DATABASE CLASS
 ===============================================================================*/
 
+
+/*One of the design patterns we used to facilitate this is the Singleton pattern.
+We use the Singleton pattern to connect with our database. Often in NodeJS development,
+programmers open and close a database connection every time they want to interact with the database.
+This adds extra time to each interaction. To keep things moving, we use singleton to create a single
+database connection when the server starts and then use that one connection to query the database as needed.*/
+
 // Connect to the database
 
 // These are variables class
@@ -199,6 +206,18 @@ function decodeResults(res, url, callback){
 
 // Calculate the score of a URL
 // range here is (100, -infinity)
+
+/*Another design pattern that we use in principle is the Chain of Responsibility.
+To analyze a link, we check multiple different information stores in order of their
+response speed. We have three classes in the code that handle this. First we check the
+local cache through our front end link class. If this doesn’t contain the information,
+it passes the request off to our backend link class which uses our database class to check
+the database. If that doesn’t have the information, the request is passed to our API class
+which uses our 3rd party API to get the required information and hand it back down the chain.
+While this isn’t a word for word application of Chain of Responsibility, the guidelines it provides
+are evident in our design, ensuring that all requests are handled within some level of our application.*/
+
+
 function calculateScore(harmless, malicious, suspicious, callback){
     callback(Math.round( 100 * (harmless - (2 * malicious) - suspicious) / (harmless + 1) ));
 }
