@@ -36,7 +36,7 @@ chrome.webRequest.onBeforeRequest.addListener(function (details) {
     // the chrome extension, or the previously analyzed link, then run risk analysis and response
     if ((details.type === "main_frame") && (details.url !== 'https://chrispence.me') && (details.url !== url) && (url_filter(details.url, "chrome-extension:") === false) && (url_filter(details.url, url) === false)) {
         // fetch the link risk analysis from app.js being served through chris' website
-        fetch("http://chrispence.me/secondchance?url=" + details.url).then(function (response) {
+        fetch(url + "/secondchance?url=" + details.url).then(function (response) {
             return response.json();
         }).then(function (parsedJson) {
             //if the analysis was a success then proceed

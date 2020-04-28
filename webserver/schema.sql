@@ -1,6 +1,3 @@
-CREATE DATABASE secondchance;
-GRANT ALL PRIVILEGES ON DATABASE secondchance TO sdd;
-
 CREATE TABLE master(
     url TEXT PRIMARY KEY,
     score INT,

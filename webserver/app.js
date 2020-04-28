@@ -1,33 +1,14 @@
 // Second Chance Module File
 // SDD 2020
 
-// This next section contains the portion of my webserver that handles the requests and directs them to this file
-/*
-// Second chance app for SDD
-app.get('/secondchance', function(req,res){
-  if(req.query.url == null){
-    res.status(400);
-    res.send("Invalid request.");
-  }
-  else{
-    secondchance.checkLink(req.query.url, function(url_status){
-      res.status(200);
-      res.send(url_status);
-    });
-  }
-});
-*/
-
 /*
 Responses to client should return JSON structure like such:
-
 {
 	success: true,
 	url: "google.com"
 	score: 0,
 	safe: true
 }
-
 */
 
 // Pull in variables from the environment
