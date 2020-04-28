@@ -73,12 +73,14 @@ function makeAPICall(url, callback){
 DATABASE CLASS
 ===============================================================================*/
 
-
 /*One of the design patterns we used to facilitate this is the Singleton pattern.
 We use the Singleton pattern to connect with our database. Often in NodeJS development,
 programmers open and close a database connection every time they want to interact with the database.
 This adds extra time to each interaction. To keep things moving, we use singleton to create a single
-database connection when the server starts and then use that one connection to query the database as needed.*/
+database connection when the server starts and then use that one connection to query the database as needed.
+
+As you can see below, the Singleton object is created with the 'client' object and is used throughout the 
+"database" class to make queries. */
 
 // Connect to the database
 
@@ -206,6 +208,14 @@ function decodeResults(res, url, callback){
 
 // Calculate the score of a URL
 // range here is (100, -infinity)
+function calculateScore(harmless, malicious, suspicious, callback){
+    callback(Math.round( 100 * (harmless - (2 * malicious) - suspicious) / (harmless + 1) ));
+}
+
+
+/*===============================================================================
+Functions to handle directives from the server.js routing functions
+===============================================================================*/
 
 /*Another design pattern that we use in principle is the Chain of Responsibility.
 To analyze a link, we check multiple different information stores in order of their
@@ -215,17 +225,12 @@ it passes the request off to our backend link class which uses our database clas
 the database. If that doesn’t have the information, the request is passed to our API class
 which uses our 3rd party API to get the required information and hand it back down the chain.
 While this isn’t a word for word application of Chain of Responsibility, the guidelines it provides
-are evident in our design, ensuring that all requests are handled within some level of our application.*/
+are evident in our design, ensuring that all requests are handled within some level of our application.
 
-
-function calculateScore(harmless, malicious, suspicious, callback){
-    callback(Math.round( 100 * (harmless - (2 * malicious) - suspicious) / (harmless + 1) ));
-}
-
-
-/*===============================================================================
-Functions to handle directives from the server.js routing functions
-===============================================================================*/
+This can be veiwed in the response handler stack. You can see the lifespan of a request as it traverses
+the server. It is important to note that the Chain of responsibility also exists in the chrome extension
+portion of the application, but it is best visualized here. Here we can see that any request that makes
+its way to the server is handled and responded to by some level of our reporting system.*/
 
 // This portion handles the redirected requests from my webserver
 // This is the main routing method
